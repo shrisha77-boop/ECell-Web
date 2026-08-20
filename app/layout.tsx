@@ -1,0 +1,277 @@
+import type { Metadata } from "next";
+import { Archivo, Bebas_Neue, Fraunces, Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
+import "./globals.css";
+
+const archivo = Archivo({
+  subsets: ["latin"],
+  variable: "--font-archivo",
+  display: "swap",
+});
+
+const bebasNeue = Bebas_Neue({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-bebas-neue",
+  display: "swap",
+});
+
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  variable: "--font-fraunces",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const SITE_URL = "https://ecell-rvu.vercel.app";
+
+export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default:
+      "ECell RV University | Entrepreneurship Cell & Startup Community",
+    template: "%s | ECell RV University",
+  },
+  description:
+    "ECell RV University is the official entrepreneurship cell at RV University, Bengaluru. We build a thriving campus community for founders, innovators, and future entrepreneurs through events, mentorship, and startup resources.",
+  applicationName: "ECell RV University",
+  keywords: [
+    "ECell RV University",
+    "ECell RVU",
+    "E-Cell RVU",
+    "ECell RV",
+    "entrepreneurship cell",
+    "RV University",
+    "RV University entrepreneurship",
+    "startup community Bengaluru",
+    "student entrepreneurs India",
+    "innovation cell",
+    "founders",
+    "Bengaluru startups",
+    "college entrepreneurship",
+    "startup events Bengaluru",
+    "student startup community",
+  ],
+  authors: [{ name: "ECell RV University", url: SITE_URL }],
+  creator: "ECell RV University",
+  publisher: "ECell RV University",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: SITE_URL,
+  },
+  openGraph: {
+    type: "website",
+    siteName: "ECell RV University",
+    title: "ECell RV University | Building What's Next",
+    description:
+      "Building ideas, backing founders, and growing a community of entrepreneurs at RV University, Bengaluru.",
+    url: SITE_URL,
+    locale: "en_IN",
+    images: [
+      {
+        url: "/og-image.webp",
+        width: 1200,
+        height: 630,
+        alt: "ECell RV University - Official Entrepreneurship Cell of RV University",
+        type: "image/webp",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ECell RV University | Building What's Next",
+    description:
+      "The official entrepreneurship cell at RV University — for founders, innovators, and future entrepreneurs.",
+    images: ["/og-image.webp"],
+    creator: "@ecell_rvu",
+  },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon-16x16.webp", sizes: "16x16", type: "image/webp" },
+      { url: "/favicon-32x32.webp", sizes: "32x32", type: "image/webp" },
+      { url: "/favicon-48x48.webp", sizes: "48x48", type: "image/webp" },
+      { url: "/favicon-96x96.webp", sizes: "96x96", type: "image/webp" },
+    ],
+    shortcut: "/favicon-48x48.webp",
+    apple: [
+      { url: "/apple-touch-icon.webp", sizes: "180x180", type: "image/webp" },
+    ],
+  },
+  manifest: "/manifest.webmanifest",
+  appleWebApp: {
+    capable: true,
+    title: "ECell RVU",
+    statusBarStyle: "black-translucent",
+  },
+  category: "education",
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      url: `${SITE_URL}/`,
+      name: "ECell RV University",
+      alternateName: [
+        "ECell RVU",
+        "E-Cell RVU",
+        "ECell RV",
+        "Entrepreneurship Cell RV University",
+      ],
+      description:
+        "The official entrepreneurship cell at RV University, Bengaluru.",
+      publisher: {
+        "@id": `${SITE_URL}/#organization`,
+      },
+      inLanguage: "en-IN",
+    },
+    {
+      "@type": "Organization",
+      "@id": `${SITE_URL}/#organization`,
+      name: "ECell RV University",
+      alternateName: [
+        "ECell RVU",
+        "E-Cell RVU",
+        "Entrepreneurship Cell RV University",
+      ],
+      url: `${SITE_URL}/`,
+      logo: {
+        "@type": "ImageObject",
+        "@id": `${SITE_URL}/#logo`,
+        url: `${SITE_URL}/logo-512.webp`,
+        contentUrl: `${SITE_URL}/logo-512.webp`,
+        caption: "ECell RV University Logo",
+        width: 512,
+        height: 512,
+      },
+      image: `${SITE_URL}/og-image.webp`,
+      description:
+        "The official entrepreneurship cell at RV University, Bengaluru — building a thriving campus community for founders, innovators, and future entrepreneurs.",
+      email: "club_ecell@rvu.edu.in",
+      foundingDate: "2023",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Bengaluru",
+        addressRegion: "Karnataka",
+        addressCountry: "IN",
+      },
+      parentOrganization: {
+        "@type": "CollegeOrUniversity",
+        name: "RV University",
+        url: "https://www.rvu.edu.in",
+      },
+      sameAs: [
+        "https://www.instagram.com/ecell_rvu/",
+        "https://www.linkedin.com/company/ecell-rvu",
+      ],
+    },
+  ],
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link
+          rel="icon"
+          type="image/webp"
+          sizes="16x16"
+          href="/favicon-16x16.webp"
+        />
+        <link
+          rel="icon"
+          type="image/webp"
+          sizes="32x32"
+          href="/favicon-32x32.webp"
+        />
+        <link
+          rel="icon"
+          type="image/webp"
+          sizes="48x48"
+          href="/favicon-48x48.webp"
+        />
+        <link
+          rel="icon"
+          type="image/webp"
+          sizes="96x96"
+          href="/favicon-96x96.webp"
+        />
+        <link rel="shortcut icon" href="/favicon-48x48.webp" />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.webp"
+        />
+        <meta name="theme-color" content="#000000" />
+        <meta property="og:image" content={`${SITE_URL}/og-image.webp`} />
+        <meta
+          property="og:image:secure_url"
+          content={`${SITE_URL}/og-image.webp`}
+        />
+        <meta property="og:image:type" content="image/webp" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="ECell RV University" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              if (typeof window !== 'undefined') {
+                if ('scrollRestoration' in history) {
+                  history.scrollRestoration = 'manual';
+                }
+                window.scrollTo(0, 0);
+                window.addEventListener('beforeunload', function() {
+                  window.scrollTo(0, 0);
+                });
+              }
+            `,
+          }}
+        />
+      </head>
+      <body
+        className={`${archivo.variable} ${bebasNeue.variable} ${fraunces.variable} ${inter.variable}`}
+        suppressHydrationWarning
+      >
+        {children}
+        <Analytics />
+        <SpeedInsights />
+      </body>
+    </html>
+  );
+}

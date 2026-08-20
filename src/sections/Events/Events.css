@@ -1,0 +1,290 @@
+.events-section {
+  position: relative;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow: hidden;
+  background: #070707;
+  color: #fff;
+}
+
+/* --- Background Image Panel (like Story section) --- */
+.events-bg-panel {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  transform-origin: top right;
+  backface-visibility: hidden;
+  will-change: transform;
+  background: #0a0a0a;
+}
+
+.events-bg-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform: translateZ(0) scale(1.08);
+  backface-visibility: hidden;
+}
+
+.events-bg-panel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  backface-visibility: hidden;
+}
+
+.events-bg-panel img.events-bg-mobile {
+  display: none;
+}
+
+/* Dark scrim for text contrast */
+.events-bg-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.35) 0%,
+    rgba(0, 0, 0, 0.2) 40%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Film grain texture */
+.events-bg-panel .grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.025;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 2;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* --- Transition Wipe (from previous section) --- */
+.events-transition-wipe {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  pointer-events: none;
+  opacity: 0;
+  background:
+    radial-gradient(circle at 50% 100%, rgba(255, 255, 255, 0.18), transparent 32%),
+    linear-gradient(180deg, #09090a 0%, #20201f 58%, #0a0a0b 100%);
+  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.2);
+  transform: translateZ(0);
+}
+
+/* --- Intro Text --- */
+.events-intro {
+  position: absolute;
+  top: clamp(2rem, 5vw, 4.5rem);
+  left: clamp(1.5rem, 6vw, 6rem);
+  z-index: 12;
+  max-width: 28rem;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateZ(0);
+}
+
+.events-intro span {
+  display: block;
+  margin-bottom: 0.8rem;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+}
+
+.events-intro h2 {
+  font-family: var(--font-bebas-neue), var(--font-archivo), sans-serif;
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  font-weight: 400;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+/* --- 3D Scene Wrapper --- */
+.events-3d-wrapper {
+  position: absolute;
+  inset: 0;
+  perspective: 800px;
+  z-index: 10;
+}
+
+/* --- 3D Scene and Camera --- */
+.events-scene {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  transform-style: preserve-3d;
+  z-index: 5;
+  will-change: transform;
+}
+
+.events-gallery-item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 32vw;
+  height: 55vh;
+  margin-top: -27.5vh;
+  margin-left: -16vw;
+  border-radius: 12px;
+  overflow: hidden;
+  /* Avoid box-shadow & contain: paint in 3D context to prevent layer invalidation */
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  pointer-events: auto;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+.events-gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* --- Bottom Caption --- */
+.events-caption-container {
+  position: absolute;
+  bottom: 3.5rem;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.events-caption-text {
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: opacity 0.3s ease;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+  color: #ffffff;
+}
+
+/* --- Exit Glow Transition --- */
+.events-exit-glow {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) translateZ(0);
+  width: min(90vw, 1000px);
+  height: 180px;
+  background: radial-gradient(ellipse at 50% 100%, rgba(255, 255, 255, 0.16), transparent 72%);
+  pointer-events: none;
+  z-index: 15;
+  opacity: 0;
+}
+
+@media (max-width: 768px) {
+  .events-section {
+    /* Keep the pinned scene stable while the mobile browser chrome moves. */
+    min-height: 100svh;
+    min-height: -webkit-fill-available;
+  }
+
+  .events-transition-wipe {
+    box-shadow: none;
+  }
+
+  .events-bg-panel {
+    will-change: transform;
+    transform: translateZ(0);
+  }
+
+  .events-bg-inner {
+    transform: translateZ(0) scale(1);
+  }
+
+  .events-bg-panel img.events-bg-desktop {
+    display: none;
+  }
+
+  .events-bg-panel img.events-bg-mobile {
+    display: block;
+    object-position: 50% 50%;
+  }
+
+  .events-bg-panel::after {
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.48) 0%,
+      rgba(0, 0, 0, 0.18) 42%,
+      rgba(0, 0, 0, 0.78) 100%
+    );
+  }
+
+  /* Keep the original 3D gallery on mobile, with a lighter perspective. */
+  .events-3d-wrapper {
+    perspective: 700px;
+  }
+
+  .events-scene {
+    top: 7vh;
+    transform-style: preserve-3d;
+    will-change: transform;
+  }
+
+  .events-intro {
+    top: clamp(4.75rem, 10vh, 6.5rem);
+    left: 1.25rem;
+    max-width: min(15rem, calc(100vw - 2.5rem));
+  }
+
+  .events-intro span {
+    margin-bottom: 0.55rem;
+    font-size: 0.62rem;
+  }
+
+  .events-intro h2 {
+    font-size: clamp(2.8rem, 13vw, 4.2rem);
+  }
+
+  .events-gallery-item {
+    width: min(78vw, 20rem);
+    height: clamp(220px, 40svh, 22rem);
+    margin-left: min(-39vw, -10rem);
+    margin-top: clamp(-11rem, -20svh, -7rem);
+    border-radius: 10px;
+    transition: none;
+    contain: layout;
+  }
+
+  .events-gallery-item:hover {
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .events-caption-container {
+    bottom: max(1.25rem, env(safe-area-inset-bottom));
+    padding: 0 1.5rem;
+  }
+
+  .events-caption-text {
+    max-width: 19rem;
+    margin: 0 auto;
+    font-size: clamp(0.7rem, 2.8vw, 0.85rem);
+    letter-spacing: 0.12em;
+    line-height: 1.45;
+  }
+
+  .events-exit-glow {
+    height: 120px;
+  }
+}

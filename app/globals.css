@@ -1,0 +1,8 @@
+@import "tailwindcss";
+@import "../src/styles/global.css";
+@import "../src/styles/SectionTransitions.css";
+
+/* Hide Next.js dev badge indicator */
+nextjs-portal {
+  display: none !important;
+}

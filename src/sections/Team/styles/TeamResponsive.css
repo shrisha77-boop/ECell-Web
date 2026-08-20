@@ -1,0 +1,287 @@
+@media (max-width: 1080px) {
+  .team {
+    padding: 50px 24px;
+  }
+
+  .team__card {
+    width: 94%;
+    height: 480px;
+    grid-template-columns: 340px 1fr;
+  }
+
+  .team__image-wrapper {
+    padding: 16px;
+  }
+
+  .team__content {
+    padding: 32px 32px 32px 16px;
+    gap: 14px;
+  }
+
+  .team__title {
+    font-size: 2.2rem;
+  }
+
+  .team__description {
+    font-size: 1.02rem;
+  }
+}
+
+@media (max-width: 860px) {
+  .team {
+    padding: 30px 16px;
+    min-height: auto;
+  }
+
+  .team__container {
+    min-height: auto;
+  }
+
+  .team__header {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 12px;
+    padding-top: 20px;
+    padding-bottom: 16px;
+  }
+
+  .team__header-title {
+    max-width: 470px;
+  }
+
+  .team__label-mark {
+    margin-bottom: 10px;
+    font-size: 0.64rem;
+    letter-spacing: 0.18em;
+  }
+
+  .team__section-title {
+    font-size: clamp(2.25rem, 9vw, 3.5rem);
+  }
+
+  .team__header-meta {
+    margin-top: 12px;
+  }
+
+  .team__intro {
+    max-width: 350px;
+    font-size: 0.82rem;
+  }
+
+  .team__counter-current {
+    font-size: 1.1rem;
+  }
+
+  .team__slider-controls {
+    gap: 12px;
+  }
+
+  .team__dots {
+    gap: 6px;
+  }
+
+  .team__dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .team__dot--active {
+    width: 20px;
+  }
+
+  .team__slider-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .team__stack {
+    height: auto;
+    min-height: 520px;
+    margin-top: 10px;
+  }
+
+  .team__card {
+    width: 100%;
+    height: auto;
+    min-height: 500px;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    border-radius: 24px;
+  }
+
+  .team__image-wrapper {
+    padding: 14px 14px 0 14px;
+  }
+
+  .team__image {
+    width: min(100%, 280px);
+    max-width: 280px;
+    aspect-ratio: 4 / 5;
+    max-height: none;
+    border-radius: 16px;
+  }
+
+  .team__image img {
+    object-position: center 12%;
+  }
+
+  .team__content {
+    padding: 18px 20px 24px 20px;
+    gap: 10px;
+  }
+
+  .team__role {
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+  }
+
+  .team__title {
+    font-size: 2.15rem;
+  }
+
+  .team__description {
+    font-size: 0.96rem;
+    line-height: 1.55;
+  }
+}
+
+@media (max-width: 560px) {
+  .team {
+    padding: 24px 12px;
+  }
+
+  .team__header-title {
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: 250px;
+  }
+
+  .team__label-mark {
+    font-size: 0.58rem;
+    letter-spacing: 0.18em;
+  }
+
+  .team__label-mark::before {
+    width: 14px;
+  }
+
+  .team__section-title {
+    font-size: 2.25rem;
+  }
+
+  .team__header-meta {
+    margin-top: 10px;
+  }
+
+  .team__intro {
+    display: none;
+  }
+
+  .team__dots {
+    display: none;
+  }
+
+  .team__slider-controls {
+    gap: 0;
+  }
+
+  .team__counter {
+    font-size: 0.95rem;
+  }
+
+  .team__card {
+    border-radius: 20px;
+    min-height: 480px;
+  }
+
+  .team__image-wrapper {
+    padding: 12px 12px 0 12px;
+  }
+
+  .team__image {
+    width: min(100%, 240px);
+    max-width: 240px;
+    aspect-ratio: 4 / 5;
+    max-height: none;
+    border-radius: 14px;
+  }
+
+  .team__linkedin-link {
+    width: 36px;
+    height: 36px;
+    bottom: 10px;
+    right: 10px;
+    border-radius: 10px;
+  }
+
+  .team__linkedin-icon {
+    width: 17px;
+    height: 17px;
+  }
+
+  .team__content {
+    padding: 14px 16px 20px 16px;
+    gap: 8px;
+  }
+
+  .team__role {
+    font-size: 0.68rem;
+  }
+
+  .team__title {
+    font-size: 1.95rem;
+  }
+
+  .team__description {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .team__slider-btn {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+@media (max-width: 380px) {
+  .team__header {
+    gap: 8px;
+  }
+
+  .team__section-title {
+    font-size: 2rem;
+  }
+
+  .team__slider-nav {
+    gap: 6px;
+  }
+}
+
+/* Mobile focus mode: preserve hierarchy without the desktop GPU-heavy effects. */
+@media (max-width: 768px) {
+  .team__focus-veil {
+    display: none;
+  }
+
+  .team__card[data-spotlight="true"] {
+    overflow: hidden;
+    animation: none;
+    box-shadow: 0 22px 46px rgba(0, 0, 0, 0.56) !important;
+  }
+
+  .team__card[data-spotlight="true"] .team__image-wrapper::before {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .team__focus-veil {
+    transition: none;
+  }
+
+  .team:has(.team__stack--spotlight) .team__focus-veil {
+    backdrop-filter: blur(8px) saturate(0.75) brightness(0.84);
+    -webkit-backdrop-filter: blur(8px) saturate(0.75) brightness(0.84);
+  }
+}

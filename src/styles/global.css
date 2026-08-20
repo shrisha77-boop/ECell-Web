@@ -1,10 +1,18 @@
 :root {
-  --bg: #070707;
-  --bg-2: #121212;
+  --bg: #1a1a1a;
+  --bg-2: #111111;
+  --bgcolor: #1a1a1a;
+  --primarycolor: #bababa;
   --fg: #f4f4f2;
-  --fg-dim: #a7a7a1;
-  --line: rgba(244, 244, 242, 0.14);
-  --line-strong: rgba(244, 244, 242, 0.28);
+  --fg-dim: #bababa;
+  --color-lightgrey: #71737d;
+  --color-cream: #bab5a6;
+  --color-red: #ff001a;
+  --color-blue: #03049c;
+  --color-black: #111111;
+  --columns: 20;
+  --line: rgba(255, 255, 255, 0.14);
+  --line-strong: rgba(255, 255, 255, 0.28);
 }
 
 * {
@@ -15,23 +23,50 @@
 
 html {
   scroll-behavior: smooth;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+html,
+body {
+  min-width: 320px;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
 }
 
 body {
   background: var(--bg);
   color: var(--fg);
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-inter), sans-serif;
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
   overflow-x: hidden;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+main {
+  width: 100%;
+  /* Do NOT set overflow-x: clip/hidden here — it creates a containing block
+     for position: fixed children in Chrome, which breaks GSAP ScrollTrigger
+     pinning when scrolling backwards. Body already has overflow-x: hidden. */
 }
 
 h1,
 h2,
 h3,
 .display {
-  font-family: "Archivo", sans-serif;
+  font-family: var(--font-archivo), sans-serif;
   font-weight: 900;
-  letter-spacing: 0;
-  line-height: 0.95;
+  letter-spacing: -0.035em;
+  line-height: 0.94;
+  text-wrap: balance;
 }
 
 a {
@@ -47,6 +82,13 @@ a {
 
 @media (max-width: 768px) {
   .wrap {
-    padding: 0 22px;
+    padding-right: max(22px, env(safe-area-inset-right));
+    padding-left: max(22px, env(safe-area-inset-left));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
