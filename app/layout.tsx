@@ -91,11 +91,11 @@ export const metadata: Metadata = {
     locale: "en_IN",
     images: [
       {
-        url: "/og-image.png",
+        url: "/og-image.webp",
         width: 1200,
         height: 630,
         alt: "ECell RV University - Official Entrepreneurship Cell of RV University",
-        type: "image/png",
+        type: "image/webp",
       },
     ],
   },
@@ -104,21 +104,21 @@ export const metadata: Metadata = {
     title: "ECell RV University | Building What's Next",
     description:
       "The official entrepreneurship cell at RV University — for founders, innovators, and future entrepreneurs.",
-    images: ["/og-image.png"],
+    images: ["/og-image.webp"],
     creator: "@ecell_rvu",
   },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
       { url: "/favicon.svg", type: "image/svg+xml" },
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/favicon-48x48.png", sizes: "48x48", type: "image/png" },
-      { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
+      { url: "/favicon-16x16.webp", sizes: "16x16", type: "image/webp" },
+      { url: "/favicon-32x32.webp", sizes: "32x32", type: "image/webp" },
+      { url: "/favicon-48x48.webp", sizes: "48x48", type: "image/webp" },
+      { url: "/favicon-96x96.webp", sizes: "96x96", type: "image/webp" },
     ],
-    shortcut: "/favicon-48x48.png",
+    shortcut: "/favicon-48x48.webp",
     apple: [
-      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+      { url: "/apple-touch-icon.webp", sizes: "180x180", type: "image/webp" },
     ],
   },
   manifest: "/manifest.webmanifest",
@@ -164,13 +164,13 @@ const jsonLd = {
       logo: {
         "@type": "ImageObject",
         "@id": `${SITE_URL}/#logo`,
-        url: `${SITE_URL}/logo-512.png`,
-        contentUrl: `${SITE_URL}/logo-512.png`,
+        url: `${SITE_URL}/logo-512.webp`,
+        contentUrl: `${SITE_URL}/logo-512.webp`,
         caption: "ECell RV University Logo",
         width: 512,
         height: 512,
       },
-      image: `${SITE_URL}/og-image.png`,
+      image: `${SITE_URL}/og-image.webp`,
       description:
         "The official entrepreneurship cell at RV University, Bengaluru — building a thriving campus community for founders, innovators, and future entrepreneurs.",
       email: "club_ecell@rvu.edu.in",
@@ -206,41 +206,41 @@ export default function RootLayout({
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link
           rel="icon"
-          type="image/png"
+          type="image/webp"
           sizes="16x16"
-          href="/favicon-16x16.png"
+          href="/favicon-16x16.webp"
         />
         <link
           rel="icon"
-          type="image/png"
+          type="image/webp"
           sizes="32x32"
-          href="/favicon-32x32.png"
+          href="/favicon-32x32.webp"
         />
         <link
           rel="icon"
-          type="image/png"
+          type="image/webp"
           sizes="48x48"
-          href="/favicon-48x48.png"
+          href="/favicon-48x48.webp"
         />
         <link
           rel="icon"
-          type="image/png"
+          type="image/webp"
           sizes="96x96"
-          href="/favicon-96x96.png"
+          href="/favicon-96x96.webp"
         />
-        <link rel="shortcut icon" href="/favicon-48x48.png" />
+        <link rel="shortcut icon" href="/favicon-48x48.webp" />
         <link
           rel="apple-touch-icon"
           sizes="180x180"
-          href="/apple-touch-icon.png"
+          href="/apple-touch-icon.webp"
         />
         <meta name="theme-color" content="#000000" />
-        <meta property="og:image" content={`${SITE_URL}/og-image.png`} />
+        <meta property="og:image" content={`${SITE_URL}/og-image.webp`} />
         <meta
           property="og:image:secure_url"
-          content={`${SITE_URL}/og-image.png`}
+          content={`${SITE_URL}/og-image.webp`}
         />
-        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:type" content="image/webp" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="ECell RV University" />
